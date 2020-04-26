@@ -62,6 +62,7 @@ export default {
         // ensuring that the same number can't be picked more than once
         vm.callerNums = vm.callerNums.filter((number) => !vm.drawnNumbers.includes(number));
         vm.showSpinner = false;
+        vm.drawnNumbers = vm.drawnNumbers.sort((a, b) => a - b);
       }, 800);
     },
     createCard() {
@@ -95,7 +96,7 @@ export default {
         // filter out any numbers that are already included in the cardContent array
         numberArray = numberArray.filter((number) => !cardContent.includes(number));
       }
-      this.cardContent = cardContent;
+      this.cardContent = cardContent.sort((a, b) => a - b);
     },
     handleClick(e) {
       // allow players to mark off their bingo card and undo it if they make a mistake

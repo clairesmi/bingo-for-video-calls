@@ -83,7 +83,7 @@ export default {
         vm.callerNums = vm.callerNums.filter((number) => !vm.drawnNumbers.includes(number));
         vm.showSpinner = false;
         vm.drawnNumbers = vm.drawnNumbers.sort((a, b) => a - b);
-      }, 800);
+      }, 1000);
     },
     createCard() {
       this.startScreen = false;
@@ -168,7 +168,6 @@ export default {
 }
 .start-screen-buttons {
   display: flex;
-  padding-top: 20px;
   width: 400px;
 }
 .title {

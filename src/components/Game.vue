@@ -98,7 +98,7 @@ export default {
       this.cardContent = cardContent;
     },
     handleClick(e) {
-      // allow players to mark off their bingo card and reverse it if they make a mistake
+      // allow players to mark off their bingo card and undo it if they make a mistake
       if (e.target.style.backgroundColor === '') {
         e.target.style.backgroundColor = 'black';
         e.target.style.color = 'white';
@@ -151,8 +151,7 @@ export default {
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 95vh;
-  /* padding: 30px; */
+  height: 90vh;
 }
 .card-wrapper {
   margin: 0;

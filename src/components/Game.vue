@@ -24,7 +24,8 @@
           5. Click on your numbers as they are called to mark them off your bingo card<br/>
           6. Players - shout out if you're the first to one horizontal line, two horizontal
           lines or full house. Share your screen so the Caller can check your card against the
-          list of numbers drawn and verify if you are worthy of the prize ;)<br/>
+          list of numbers drawn (or just check verbally if easier) and verify
+          if you are worthy of the prize ;)<br/>
         </p>
       </div>
     </div>

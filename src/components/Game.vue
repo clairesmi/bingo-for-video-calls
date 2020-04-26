@@ -207,10 +207,8 @@ export default {
 .drawn-numbers-wrapper {
   display: flex;
   flex-wrap: wrap;
-  /* justify-content: flex-end; */
   width: 100%;
   height: 10%;
-  /* overflow: scroll; */
 }
 .numbers-drawn-header {
   font-family: 'Indie Flower', cursive;
@@ -228,7 +226,6 @@ export default {
 }
 .drawn-number {
   display: flex;
-  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
   width: 50px;

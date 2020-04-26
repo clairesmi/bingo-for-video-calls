@@ -111,7 +111,6 @@ export default {
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .start-screen {
   display: flex;
@@ -138,7 +137,6 @@ export default {
   margin: 10px 0px 0px 0px;
   letter-spacing: 5px;
   font-family: 'Indie Flower', cursive;
-  /* padding-bottom: 20px; */
 }
 .game {
   display: flex;

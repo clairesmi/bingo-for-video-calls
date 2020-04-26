@@ -3,16 +3,21 @@
     <div v-show="startScreen">
       <h1 class="title">BINGO!</h1>
       <h2>Are you...</h2>
-      <button @click="showCaller">The bingo caller</button>
+      <button @click="showCallerScreen">The bingo caller</button>
       <button @click="createCard">A bingo player</button>
     </div>
-    <div v-show="!startScreen">
+    <div class="game-in-play" v-show="!startScreen">
     <div v-show="player" class="card-wrapper"><h1 class="title">BINGO!</h1>
     <div class="card"></div>
     </div>
-    <div v-show="caller">
-      <button @click="pickNumber">Next Number</button>
-      <div>{{ currentNumber }}</div>
+    <div class="caller-page" v-show="caller">
+      <button class="generate-number-button" @click="pickNumber">Next Number</button>
+      <div class="current-number" v-if="showSpinner"><img class="loading-spinner" src="https://media.giphy.com/media/29JOa4o8Qc7W2S65sk/giphy.gif" alt="loading spinner"></div>
+      <div class="current-number" v-else>{{ currentNumber }}</div>
+      <h3>Numbers Drawn:</h3>
+      <div class="drawn-numbers-wrapper">
+      <div v-for="number in drawnNumbers" :key="number" class="drawn-number">{{ number }}</div>
+      </div>
     </div>
     </div>
   </div>
@@ -30,16 +35,31 @@ export default {
       card: null,
       numbers: null,
       cardContent: null,
-      currentNumber: null,
+      callerNums: [],
+      currentNumber: '??',
+      drawnNumbers: [],
+      showSpinner: false,
     };
   },
   methods: {
-    showCaller() {
+    showCallerScreen() {
       this.startScreen = false;
       this.caller = true;
+      //  setting up the array of numbers for the caller to pick from
+      for (let i = 1; i <= 75; i += 1) {
+        this.callerNums.push(i);
+      }
     },
     pickNumber() {
-      console.log('picked');
+      this.showSpinner = true;
+      setTimeout(() => {
+        const randomNumber = this.callerNums[(Math.floor(Math.random() * this.callerNums.length))];
+        this.drawnNumbers.push(randomNumber);
+        this.currentNumber = randomNumber;
+        // ensuring that the same number can't be picked more than once
+        this.callerNums = this.callerNums.filter((number) => !this.drawnNumbers.includes(number));
+        this.showSpinner = false;
+      }, 1000);
     },
     createCard() {
       this.startScreen = false;
@@ -102,6 +122,13 @@ export default {
   justify-content: center;
   align-items: center;
 }
+.game-in-play {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 95vh;
+  /* padding: 30px; */
+}
 .card-wrapper {
   margin: 0;
   display: flex;
@@ -125,6 +152,52 @@ export default {
   align-items: center;
   width: 18%;
   height: 18%;
+  border: solid black 1px;
+  margin: 0.5%;
+  background-color: white;
+  font-family: 'Arvo', serif;
+  font-size: 30px;
+  color: black;
+  cursor: pointer;
+}
+.caller-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 90vw;
+  height: 100vh;
+  padding: 20px;
+}
+.current-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 5%;
+  height: 50vh;
+  font-size: 150px;
+  margin-bottom: 20px;
+}
+.drawn-numbers-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  /* justify-content: flex-end; */
+  width: 100%;
+  /* height: 60vh; */
+}
+.generate-number-button {
+  height: 30px;
+  width: 150px;
+  font-size: 20px;
+  background-color: chartreuse;
+}
+.drawn-number {
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
   border: solid black 1px;
   margin: 0.5%;
   background-color: white;

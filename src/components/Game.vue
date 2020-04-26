@@ -1,20 +1,22 @@
 <template>
   <div class="game">
-    <div v-show="startScreen">
+    <div class="start-screen" v-show="startScreen">
       <h1 class="title">BINGO!</h1>
       <h2>Are you...</h2>
-      <button @click="showCallerScreen">The bingo caller</button>
-      <button @click="createCard">A bingo player</button>
+      <div class="start-screen-buttons">
+      <button class="button" @click="showCallerScreen">The bingo caller</button>
+      <button class="button" @click="createCard">A bingo player</button>
+      </div>
     </div>
     <div class="game-in-play" v-show="!startScreen">
-    <div v-show="player" class="card-wrapper"><h1 class="title">BINGO!</h1>
+    <div v-show="player" class="card-wrapper"><h1 class="card-title">BINGO!</h1>
     <div class="card"></div>
     </div>
     <div class="caller-page" v-show="caller">
-      <button class="generate-number-button" @click="pickNumber">Next Number</button>
+      <button class="button" @click="pickNumber">Next Number</button>
       <div class="current-number" v-if="showSpinner"><img class="loading-spinner" src="https://media.giphy.com/media/29JOa4o8Qc7W2S65sk/giphy.gif" alt="loading spinner"></div>
       <div class="current-number" v-else>{{ currentNumber }}</div>
-      <h3>Numbers Drawn:</h3>
+      <h3 class="numbers-drawn-header">Numbers Drawn:</h3>
       <div class="drawn-numbers-wrapper">
       <div v-for="number in drawnNumbers" :key="number" class="drawn-number">{{ number }}</div>
       </div>
@@ -52,14 +54,15 @@ export default {
     },
     pickNumber() {
       this.showSpinner = true;
+      const vm = this;
       setTimeout(() => {
-        const randomNumber = this.callerNums[(Math.floor(Math.random() * this.callerNums.length))];
-        this.drawnNumbers.push(randomNumber);
-        this.currentNumber = randomNumber;
+        const randomNumber = vm.callerNums[(Math.floor(Math.random() * this.callerNums.length))];
+        vm.drawnNumbers.push(randomNumber);
+        vm.currentNumber = randomNumber;
         // ensuring that the same number can't be picked more than once
-        this.callerNums = this.callerNums.filter((number) => !this.drawnNumbers.includes(number));
-        this.showSpinner = false;
-      }, 1000);
+        vm.callerNums = vm.callerNums.filter((number) => !vm.drawnNumbers.includes(number));
+        vm.showSpinner = false;
+      }, 800);
     },
     createCard() {
       this.startScreen = false;
@@ -95,6 +98,7 @@ export default {
       this.cardContent = cardContent;
     },
     handleClick(e) {
+      // allow players to mark off their bingo card and reverse it if they make a mistake
       if (e.target.style.backgroundColor === '') {
         e.target.style.backgroundColor = 'black';
         e.target.style.color = 'white';
@@ -109,22 +113,45 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.start-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
+}
+.start-screen-buttons {
+  display: flex;
+  padding-top: 20px;
+  width: 400px;
+}
 .title {
+  color: black;
+  font-size: 120px;
+  margin: 10px 0px 0px 0px;
+  letter-spacing: 5px;
+  font-family: 'Indie Flower', cursive;
+  padding-bottom: 20px;
+}
+.card-title {
   color: black;
   font-size: 55px;
   margin: 10px 0px 0px 0px;
   letter-spacing: 5px;
   font-family: 'Indie Flower', cursive;
+  /* padding-bottom: 20px; */
 }
 .game {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 .game-in-play {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
   height: 95vh;
   /* padding: 30px; */
@@ -168,6 +195,7 @@ export default {
   width: 90vw;
   height: 100vh;
   padding: 20px;
+  color: black;
 }
 .current-number {
   display: flex;
@@ -177,19 +205,29 @@ export default {
   height: 50vh;
   font-size: 150px;
   margin-bottom: 20px;
+  font-family: 'Arvo', serif;
 }
 .drawn-numbers-wrapper {
   display: flex;
   flex-wrap: wrap;
   /* justify-content: flex-end; */
   width: 100%;
-  /* height: 60vh; */
+  height: 10%;
+  /* overflow: scroll; */
 }
-.generate-number-button {
+.numbers-drawn-header {
+  font-family: 'Indie Flower', cursive;
+  font-size: 30px;
+}
+.button {
   height: 30px;
   width: 150px;
+  margin: 10px;
   font-size: 20px;
-  background-color: chartreuse;
+  font-weight: bold;
+  background-color: whitesmoke;
+  font-family: 'Indie Flower', cursive;
+  cursor: pointer;
 }
 .drawn-number {
   display: flex;

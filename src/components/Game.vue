@@ -1,26 +1,46 @@
 <template>
   <div class="game">
     <div class="start-screen" v-show="startScreen">
-      <h1 class="title">BINGO!</h1>
-      <h2>Are you...</h2>
-      <div class="start-screen-buttons">
-      <button class="button" @click="showCallerScreen">The bingo caller</button>
-      <button class="button" @click="createCard">A bingo player</button>
+      <div class="game-controls">
+        <h1 class="title">BINGO!</h1>
+        <h2>Are you...</h2>
+        <div class="start-screen-buttons">
+        <button class="button" @click="showCallerScreen">The bingo caller</button>
+        <button class="button" @click="createCard">A bingo player</button>
+        </div>
+      </div>
+      <div class="instructions">
+        <h2 class="instructions-title">How to play:</h2>
+        <p class="instructions-text">
+          1. Designate someone in your group as the bingo caller <br/>
+          2. Players - click the players button, Caller - click the caller button <br/>
+          3. The Caller will now be ready to start calling numbers and the
+          players will see a bingo card has been generated for them. <br/>
+          4. The Caller can share their screen with the rest of the group
+          so that they can see the numbers, or the Caller can just
+           call out each number, it's up to you! (If you do this, players
+           will need to rearrange their windows so they can see both at the same time -
+           position two windows next to each other)<br/>
+          5. Click on your numbers as they are called to mark them off your bingo card<br/>
+          6. Players - shout out if you're the first to one horizontal line, two horizontal
+          lines or full house. Share your screen so the Caller can check your card against the
+          list of numbers drawn and verify if you are worthy of the prize ;)<br/>
+        </p>
       </div>
     </div>
     <div class="game-in-play" v-show="!startScreen">
-    <div v-show="player" class="card-wrapper"><h1 class="card-title">BINGO!</h1>
-    <div class="card"></div>
-    </div>
-    <div class="caller-page" v-show="caller">
-      <button class="button" @click="pickNumber">Next Number</button>
-      <div class="current-number" v-if="showSpinner"><img class="loading-spinner" src="https://media.giphy.com/media/29JOa4o8Qc7W2S65sk/giphy.gif" alt="loading spinner"></div>
-      <div class="current-number" v-else>{{ currentNumber }}</div>
-      <h3 class="numbers-drawn-header">Numbers Drawn:</h3>
-      <div class="drawn-numbers-wrapper">
-      <div v-for="number in drawnNumbers" :key="number" class="drawn-number">{{ number }}</div>
+      <div v-show="player" class="card-wrapper"><h1 class="card-title">BINGO!</h1>
+        <div class="card"></div>
       </div>
-    </div>
+      <div class="caller-page" v-show="caller">
+        <button class="button" @click="pickNumber">Next Number</button>
+        <div class="current-number" v-if="showSpinner"><img class="loading-spinner" src="https://media.giphy.com/media/29JOa4o8Qc7W2S65sk/giphy.gif" alt="loading spinner"></div>
+        <div class="current-number" v-else>{{ currentNumber }}</div>
+        <h3 class="numbers-drawn-header">Numbers Drawn:</h3>
+        <div class="drawn-numbers-wrapper">
+          <div v-for="number in drawnNumbers" :key="number" class="drawn-number">{{ number }}</div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -115,9 +135,36 @@ export default {
 <style scoped>
 .start-screen {
   display: flex;
+  width: 100vw;
+  justify-content: space-around;
+}
+.game-controls {
+  display: flex;
   flex-direction: column;
   justify-content: center;
-  justify-items: center;
+  align-items: center;
+  width: 58vw;
+  height: 80vh;
+  box-shadow: 2px 2px 20px 2px gray;
+  overflow: scroll;
+}
+.instructions {
+  display: flex;
+  flex-direction: column;
+  width: 35vw;
+  height: 80vh;
+  font-family: 'Indie Flower', cursive;
+  font-size: 30px;
+  box-shadow: 2px 2px 20px 2px gray;
+  overflow: scroll;
+}
+.instructions-title {
+  margin: 10px 0px 0px 0px;
+}
+.instructions-text {
+  font-family: 'Indie Flower', cursive;
+  font-size: 20px;
+  padding: 5px;
 }
 .start-screen-buttons {
   display: flex;

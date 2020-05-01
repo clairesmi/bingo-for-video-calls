@@ -145,7 +145,7 @@ export default {
   justify-content: center;
   align-items: center;
   width: 58vw;
-  height: 90vh;
+  height: 80vh;
   box-shadow: 2px 2px 20px 2px gray;
   overflow: scroll;
 }
@@ -153,7 +153,7 @@ export default {
   display: flex;
   flex-direction: column;
   width: 35vw;
-  height: 90vh;
+  height: 80vh;
   font-family: 'Indie Flower', cursive;
   font-size: 3vw;
   box-shadow: 2px 2px 20px 2px gray;
@@ -186,11 +186,11 @@ export default {
   flex-direction: column;
   align-self: center;
   text-align: center;
-  height: 12vh;
+  height: 10%;
   color: black;
-  font-size: 8vw;
+  font-size: 4vw;
   margin: 0px;
-  padding: 5px 0px 30px 0px;
+  padding: 0px 0px 15px 0px;
   letter-spacing: 5px;
   font-family: 'Indie Flower', cursive;
 }
@@ -207,7 +207,7 @@ export default {
   justify-content: center;
   align-items: center;
   width: 100vw;
-  height: 90vh;
+  height: 95vh;
 }
 .card-wrapper {
   margin: 0;
@@ -218,15 +218,16 @@ export default {
   background-color: red;
   border: solid black 1px;
   width: 40%;
-  height: 90vh;
+  height: 80%;
 }
 .card {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  width: 40vw;
-  height: 85vh;
+  width: 100%;
+  height: 100%;
+  padding-bottom: 10px;
 }
 .card >>> .number {
   display: flex;

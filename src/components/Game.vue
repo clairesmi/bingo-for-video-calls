@@ -259,7 +259,7 @@ export default {
   align-items: center;
   padding-top: 5%;
   height: 50vh;
-  font-size: 150px;
+  font-size: 20vw;
   margin-bottom: 20px;
   font-family: 'Arvo', serif;
 }
@@ -277,10 +277,10 @@ export default {
   font-size: 3vw;
 }
 .button {
-  height: 6vh;
+  height: 8vh;
   width: 15vw;
   margin: 10px;
-  font-size: 2vw;
+  font-size: 2.1vw;
   font-weight: bold;
   background-color: whitesmoke;
   font-family: 'Indie Flower', cursive;
@@ -296,8 +296,13 @@ export default {
   margin: 0.5%;
   background-color: white;
   font-family: 'Arvo', serif;
-  font-size: 30px;
+  font-size: 3vw;
   color: black;
   cursor: pointer;
+  padding: 1px;
+}
+.loading-spinner {
+  height: 52vh;
+  width: 47vw;
 }
 </style>

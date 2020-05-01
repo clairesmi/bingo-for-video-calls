@@ -3,7 +3,7 @@
 ![Homepage screenshot](/src/bingo-assets/homepage.png) 
 
 ## Deployment
-The project is deployed with Netlify and cn be found here: https://smith-bingo.netlify.app/
+The project is deployed with Netlify and can be found here: https://smith-bingo.netlify.app/
 
 ## Project setup
 ```

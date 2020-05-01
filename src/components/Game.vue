@@ -3,7 +3,7 @@
     <div class="start-screen" v-show="startScreen">
       <div class="game-controls">
         <h1 class="title">BINGO!</h1>
-        <h2>Are you...</h2>
+        <h2 class="selector">Are you...</h2>
         <div class="start-screen-buttons">
         <button class="button" @click="showCallerScreen">The bingo caller</button>
         <button class="button" @click="createCard">A bingo player</button>
@@ -155,7 +155,7 @@ export default {
   width: 35vw;
   height: 80vh;
   font-family: 'Indie Flower', cursive;
-  font-size: 30px;
+  font-size: 3vw;
   box-shadow: 2px 2px 20px 2px gray;
   overflow: scroll;
 }
@@ -164,16 +164,17 @@ export default {
 }
 .instructions-text {
   font-family: 'Indie Flower', cursive;
-  font-size: 20px;
+  font-size: 2.5vw;
   padding: 5px;
 }
 .start-screen-buttons {
   display: flex;
-  width: 400px;
+  justify-content: center;
+  width: 50vw;
 }
 .title {
   color: black;
-  font-size: 120px;
+  font-size: 15vw;
   margin: 10px 0px 0px 0px;
   letter-spacing: 5px;
   font-family: 'Indie Flower', cursive;
@@ -262,11 +263,14 @@ export default {
   font-family: 'Indie Flower', cursive;
   font-size: 30px;
 }
+.selector {
+  font-size: 3vw;
+}
 .button {
-  height: 30px;
-  width: 150px;
+  height: 6vh;
+  width: 15vw;
   margin: 10px;
-  font-size: 20px;
+  font-size: 2vw;
   font-weight: bold;
   background-color: whitesmoke;
   font-family: 'Indie Flower', cursive;

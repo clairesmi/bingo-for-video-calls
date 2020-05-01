@@ -16,6 +16,9 @@ export default {
 </script>
 
 <style>
+html {
+  height: 100vh;
+}
 #app {
   font-family: 'Arvo', serif;
   -webkit-font-smoothing: antialiased;

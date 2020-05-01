@@ -145,7 +145,7 @@ export default {
   justify-content: center;
   align-items: center;
   width: 58vw;
-  height: 80vh;
+  height: 90vh;
   box-shadow: 2px 2px 20px 2px gray;
   overflow: scroll;
 }
@@ -153,7 +153,7 @@ export default {
   display: flex;
   flex-direction: column;
   width: 35vw;
-  height: 80vh;
+  height: 90vh;
   font-family: 'Indie Flower', cursive;
   font-size: 3vw;
   box-shadow: 2px 2px 20px 2px gray;
@@ -166,6 +166,7 @@ export default {
   font-family: 'Indie Flower', cursive;
   font-size: 2.5vw;
   padding: 5px;
+  height: 50%;
 }
 .start-screen-buttons {
   display: flex;
@@ -181,9 +182,15 @@ export default {
   padding-bottom: 20px;
 }
 .card-title {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  text-align: center;
+  height: 12vh;
   color: black;
-  font-size: 55px;
-  margin: 10px 0px 0px 0px;
+  font-size: 8vw;
+  margin: 0px;
+  padding: 5px 0px 30px 0px;
   letter-spacing: 5px;
   font-family: 'Indie Flower', cursive;
 }
@@ -207,29 +214,31 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   background-color: red;
   border: solid black 1px;
-  width: 40vw;
-  height: 95vh;
+  width: 40%;
+  height: 90vh;
 }
 .card {
   display: flex;
+  align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   width: 40vw;
-  height: 80vh;
+  height: 85vh;
 }
 .card >>> .number {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 18%;
-  height: 18%;
+  width: 17%;
+  height: 17%;
   border: solid black 1px;
-  margin: 0.5%;
+  margin: 0% 0.5%;
   background-color: white;
   font-family: 'Arvo', serif;
-  font-size: 30px;
+  font-size: 3vw;
   color: black;
   cursor: pointer;
 }
@@ -240,7 +249,7 @@ export default {
   align-items: center;
   width: 90vw;
   height: 100vh;
-  padding: 20px;
+  /* padding: 20px; */
   color: black;
 }
 .current-number {
